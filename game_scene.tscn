@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwlnraav4170n"]
+
+[ext_resource type="PackedScene" uid="uid://b0hhroeksco8a" path="res://player.tscn" id="1_p1aj6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u61xi"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qsu7u"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7knhl"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4mey7"]
+
+[node name="GameScene" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_p1aj6")]
+position = Vector2(587, 286)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Right World Border" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1150, 321)
+rotation = 4.71239
+shape = SubResource("WorldBoundaryShape2D_u61xi")
+
+[node name="Left World Border" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 345)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_qsu7u")
+
+[node name="Bottom World Border" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(607, 650)
+shape = SubResource("WorldBoundaryShape2D_7knhl")
+
+[node name="Top World Border" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(500, 0)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_4mey7")

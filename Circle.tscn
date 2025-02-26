@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpr05boqxf8ju"]
+[gd_scene load_steps=3 format=3 uid="uid://bhsxd1xhoguky"]
 
-[ext_resource type="Texture2D" uid="uid://45l3phvp3jel" path="res://THIN.png" id="1_fo70h"]
+[ext_resource type="Texture2D" uid="uid://8knerrupt60p" path="res://circle-png-8.png" id="1_mna63"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8dswo"]
 
@@ -14,10 +14,6 @@ shape = SubResource("CircleShape2D_8dswo")
 scale = Vector2(0.5, 0.5)
 
 [node name="Circle-png-8" type="Sprite2D" parent="."]
-position = Vector2(583, 323)
-scale = Vector2(1.54687, 1.54687)
-
-[node name="Thin" type="Sprite2D" parent="."]
-position = Vector2(461, 199)
-scale = Vector2(1.18, 1.18)
-texture = ExtResource("1_fo70h")
+position = Vector2(556, 346)
+scale = Vector2(1.3252, 1.3252)
+texture = ExtResource("1_mna63")

@@ -12,26 +12,74 @@
 
 [node name="GameScene" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_p1aj6")]
-position = Vector2(587, 286)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Right World Border" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1150, 321)
+position = Vector2(900, 321)
 rotation = 4.71239
 shape = SubResource("WorldBoundaryShape2D_u61xi")
 
 [node name="Left World Border" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 345)
+position = Vector2(252, 345)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_qsu7u")
 
 [node name="Bottom World Border" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(607, 650)
+position = Vector2(607, 500)
 shape = SubResource("WorldBoundaryShape2D_7knhl")
 
 [node name="Top World Border" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(500, 0)
+position = Vector2(500, 150)
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_4mey7")
+
+[node name="Horizontal Lines" type="ColorRect" parent="."]
+offset_left = 252.0
+offset_top = 150.0
+offset_right = 900.0
+offset_bottom = 155.0
+
+[node name="ColorRect" type="ColorRect" parent="Horizontal Lines"]
+layout_mode = 0
+offset_top = 70.0
+offset_right = 648.0
+offset_bottom = 75.0
+
+[node name="ColorRect2" type="ColorRect" parent="Horizontal Lines"]
+layout_mode = 0
+offset_top = 140.0
+offset_right = 648.0
+offset_bottom = 145.0
+
+[node name="ColorRect5" type="ColorRect" parent="Horizontal Lines"]
+layout_mode = 0
+offset_top = 350.0
+offset_right = 648.0
+offset_bottom = 355.0
+
+[node name="ColorRect3" type="ColorRect" parent="Horizontal Lines"]
+layout_mode = 0
+offset_top = 210.0
+offset_right = 648.0
+offset_bottom = 215.0
+
+[node name="ColorRect4" type="ColorRect" parent="Horizontal Lines"]
+layout_mode = 0
+offset_top = 280.0
+offset_right = 648.0
+offset_bottom = 285.0
+
+[node name="Vertical Lines" type="ColorRect" parent="."]
+offset_left = 252.0
+offset_top = 150.0
+offset_right = 257.0
+offset_bottom = 500.0
+
+[node name="Vertical Lines2" type="ColorRect" parent="."]
+offset_left = 900.0
+offset_top = 150.0
+offset_right = 905.0
+offset_bottom = 500.0
+
+[node name="Player" parent="." instance=ExtResource("1_p1aj6")]
+position = Vector2(587, 286)

@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwlnraav4170n"]
+[gd_scene load_steps=8 format=3 uid="uid://cwlnraav4170n"]
 
 [ext_resource type="PackedScene" uid="uid://b0hhroeksco8a" path="res://player.tscn" id="1_p1aj6"]
+[ext_resource type="Script" path="res://game_scene.gd" id="1_uasnv"]
+[ext_resource type="PackedScene" uid="uid://cbny36eeah3wl" path="res://mob.tscn" id="2_osktw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u61xi"]
 
@@ -11,6 +13,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4mey7"]
 
 [node name="GameScene" type="Node2D"]
+script = ExtResource("1_uasnv")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -75,11 +78,27 @@ offset_top = 150.0
 offset_right = 257.0
 offset_bottom = 500.0
 
-[node name="Vertical Lines2" type="ColorRect" parent="."]
-offset_left = 900.0
-offset_top = 150.0
-offset_right = 905.0
-offset_bottom = 500.0
+[node name="Vertical Lines2" type="ColorRect" parent="Vertical Lines"]
+layout_mode = 0
+offset_left = 648.0
+offset_right = 653.0
+offset_bottom = 350.0
+
+[node name="SpawnPoint" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_left = 160.0
+offset_top = 234.0
+offset_right = 200.0
+offset_bottom = 274.0
 
 [node name="Player" parent="." instance=ExtResource("1_p1aj6")]
 position = Vector2(587, 286)
+
+[node name="mob" parent="." instance=ExtResource("2_osktw")]
+position = Vector2(171, 322)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

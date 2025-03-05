@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhsxd1xhoguky"]
+
+[ext_resource type="Texture2D" uid="uid://8knerrupt60p" path="res://circle-png-8.png" id="1_mna63"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8dswo"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_8dswo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="Circle-png-8" type="Sprite2D" parent="."]
+position = Vector2(556, 346)
+scale = Vector2(1.3252, 1.3252)
+texture = ExtResource("1_mna63")

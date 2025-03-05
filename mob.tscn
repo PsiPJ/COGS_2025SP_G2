@@ -1,23 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpr05boqxf8ju"]
+[gd_scene load_steps=4 format=3 uid="uid://cbny36eeah3wl"]
 
-[ext_resource type="Texture2D" uid="uid://45l3phvp3jel" path="res://THIN.png" id="1_fo70h"]
+[ext_resource type="Script" path="res://mob.gd" id="1_au20f"]
+[ext_resource type="Texture2D" uid="uid://c5qpsjj28rdth" path="res://icon.svg" id="1_n4v2o"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8dswo"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_cbg8q"]
+radius = 31.0644
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.5, 0.5)
-shape = SubResource("CircleShape2D_8dswo")
+[node name="mob" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_au20f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_n4v2o")
 
-[node name="Circle-png-8" type="Sprite2D" parent="."]
-position = Vector2(583, 323)
-scale = Vector2(1.54687, 1.54687)
-
-[node name="Thin" type="Sprite2D" parent="."]
-position = Vector2(461, 199)
-scale = Vector2(1.18, 1.18)
-texture = ExtResource("1_fo70h")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cbg8q")

@@ -3,5 +3,4 @@
 [ext_resource type="Script" path="res://main.gd" id="1_kf4wu"]
 
 [node name="main" type="Node2D"]
-scale = Vector2(-21.3333, 0.773333)
 script = ExtResource("1_kf4wu")

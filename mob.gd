@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-#controls for player and speed
 func _physics_process(delta):
-	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = direction * 60000 * delta #delta might be unecessary
+	var direction = Vector2.RIGHT
+	velocity = direction * 300
 	move_and_slide()

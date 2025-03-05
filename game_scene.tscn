@@ -1,7 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cwlnraav4170n"]
 
 [ext_resource type="PackedScene" uid="uid://b0hhroeksco8a" path="res://player.tscn" id="1_p1aj6"]
-[ext_resource type="PackedScene" uid="uid://cpr05boqxf8ju" path="res://mob.tscn" id="2_fp63f"]
+[ext_resource type="Script" path="res://game_scene.gd" id="1_uasnv"]
+[ext_resource type="PackedScene" uid="uid://cbny36eeah3wl" path="res://mob.tscn" id="2_osktw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u61xi"]
 
@@ -11,9 +12,8 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4mey7"]
 
-[sub_resource type="GDScript" id="GDScript_fmidh"]
-
 [node name="GameScene" type="Node2D"]
+script = ExtResource("1_uasnv")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -36,15 +36,6 @@ position = Vector2(500, 150)
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_4mey7")
 
-[node name="ColorRect6" type="ColorRect" parent="."]
-light_mask = 512
-visibility_layer = 512
-offset_left = 256.0
-offset_top = 149.0
-offset_right = 904.0
-offset_bottom = 499.0
-color = Color(0.571575, 0.590275, 0.30409, 1)
-
 [node name="Horizontal Lines" type="ColorRect" parent="."]
 offset_left = 252.0
 offset_top = 150.0
@@ -65,10 +56,9 @@ offset_bottom = 145.0
 
 [node name="ColorRect5" type="ColorRect" parent="Horizontal Lines"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 346.0
-offset_right = 654.0
-offset_bottom = 351.0
+offset_top = 350.0
+offset_right = 648.0
+offset_bottom = 355.0
 
 [node name="ColorRect3" type="ColorRect" parent="Horizontal Lines"]
 layout_mode = 0
@@ -88,19 +78,27 @@ offset_top = 150.0
 offset_right = 257.0
 offset_bottom = 500.0
 
-[node name="Vertical Lines2" type="ColorRect" parent="."]
-offset_left = 900.0
-offset_top = 150.0
-offset_right = 905.0
-offset_bottom = 500.0
+[node name="Vertical Lines2" type="ColorRect" parent="Vertical Lines"]
+layout_mode = 0
+offset_left = 648.0
+offset_right = 653.0
+offset_bottom = 350.0
+
+[node name="SpawnPoint" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_left = 160.0
+offset_top = 234.0
+offset_right = 200.0
+offset_bottom = 274.0
 
 [node name="Player" parent="." instance=ExtResource("1_p1aj6")]
 position = Vector2(587, 286)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_fp63f")]
-position = Vector2(121, 112)
+[node name="mob" parent="." instance=ExtResource("2_osktw")]
+position = Vector2(171, 322)
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(100, 78)
-scale = Vector2(1e-05, 1e-05)
-script = SubResource("GDScript_fmidh")
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

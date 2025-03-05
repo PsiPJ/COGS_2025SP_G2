@@ -8,4 +8,3 @@ func spawn_mob():
 
 func _on_timer_timeout() -> void:
 	spawn_mob()
-	s

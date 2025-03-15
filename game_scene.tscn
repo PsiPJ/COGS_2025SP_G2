@@ -84,13 +84,6 @@ offset_left = 648.0
 offset_right = 653.0
 offset_bottom = 350.0
 
-[node name="SpawnPoint" type="ColorRect" parent="."]
-unique_name_in_owner = true
-offset_left = 160.0
-offset_top = 234.0
-offset_right = 200.0
-offset_bottom = 274.0
-
 [node name="Player" parent="." instance=ExtResource("1_p1aj6")]
 position = Vector2(587, 286)
 
@@ -100,5 +93,63 @@ position = Vector2(171, 322)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="Spawn Points" type="Node2D" parent="."]
+
+[node name="SpawnPointTop1" type="ColorRect" parent="Spawn Points"]
+unique_name_in_owner = true
+offset_left = 421.0
+offset_top = 48.0
+offset_right = 461.0
+offset_bottom = 88.0
+
+[node name="SpawnPointTop2" type="ColorRect" parent="Spawn Points"]
+unique_name_in_owner = true
+offset_left = 693.0
+offset_top = 52.0
+offset_right = 733.0
+offset_bottom = 92.0
+
+[node name="SpawnPointRight1" type="ColorRect" parent="Spawn Points"]
+unique_name_in_owner = true
+offset_left = 1014.0
+offset_top = 212.0
+offset_right = 1054.0
+offset_bottom = 252.0
+
+[node name="SpawnPointRight2" type="ColorRect" parent="Spawn Points"]
+unique_name_in_owner = true
+offset_left = 1011.0
+offset_top = 373.0
+offset_right = 1051.0
+offset_bottom = 413.0
+
+[node name="SpawnPointDown1" type="ColorRect" parent="Spawn Points"]
+unique_name_in_owner = true
+offset_left = 729.0
+offset_top = 540.0
+offset_right = 769.0
+offset_bottom = 580.0
+
+[node name="SpawnPointDown2" type="ColorRect" parent="Spawn Points"]
+unique_name_in_owner = true
+offset_left = 432.0
+offset_top = 534.0
+offset_right = 472.0
+offset_bottom = 574.0
+
+[node name="SpawnPointLeft1" type="ColorRect" parent="Spawn Points"]
+unique_name_in_owner = true
+offset_left = 140.0
+offset_top = 407.0
+offset_right = 180.0
+offset_bottom = 447.0
+
+[node name="SpawnPointLeft2" type="ColorRect" parent="Spawn Points"]
+unique_name_in_owner = true
+offset_left = 144.0
+offset_top = 203.0
+offset_right = 184.0
+offset_bottom = 243.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

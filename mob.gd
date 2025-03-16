@@ -1,6 +1,10 @@
 extends CharacterBody2D
 
 func _physics_process(delta):
-	#var direction = Vector2.RIGHT
-	#velocity = direction * 300
+	# NOTE: the direction and velocity is set in the game scene script
 	move_and_slide()
+
+
+# despawns mobs after they leave the screen (adjust wait time property)
+func _on_timer_timeout() -> void:
+	queue_free()

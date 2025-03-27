@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwlnraav4170n"]
+[gd_scene load_steps=11 format=3 uid="uid://cwlnraav4170n"]
 
 [ext_resource type="PackedScene" uid="uid://b0hhroeksco8a" path="res://player.tscn" id="1_p1aj6"]
 [ext_resource type="Script" path="res://game_scene.gd" id="1_uasnv"]
+[ext_resource type="Script" path="res://lives_display.gd" id="2_5fnof"]
 [ext_resource type="PackedScene" uid="uid://cbny36eeah3wl" path="res://mob.tscn" id="2_osktw"]
+[ext_resource type="Texture2D" uid="uid://c5t11umrfwfgu" path="res://Heart.png" id="3_4wiql"]
+[ext_resource type="Texture2D" uid="uid://b5ercqn0mb23o" path="res://Ded.png" id="4_2jsup"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u61xi"]
 
@@ -14,6 +17,47 @@
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_uasnv")
+
+[node name="LivesDisplay" type="CanvasLayer" parent="."]
+script = ExtResource("2_5fnof")
+
+[node name="Panel" type="Panel" parent="LivesDisplay"]
+offset_left = 78.0
+offset_top = 5.0
+offset_right = 296.0
+offset_bottom = 82.0
+
+[node name="FullHeart" type="TextureRect" parent="LivesDisplay"]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = -0.11
+anchor_top = -0.37
+anchor_right = -0.11
+anchor_bottom = -0.37
+offset_left = 219.72
+offset_top = 251.76
+offset_right = 266.72
+offset_bottom = 267.76
+scale = Vector2(4, 4)
+texture = ExtResource("3_4wiql")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="EmptyHeart" type="TextureRect" parent="LivesDisplay"]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = -0.11
+anchor_top = -0.37
+anchor_right = -0.11
+anchor_bottom = -0.37
+offset_left = 219.72
+offset_top = 251.76
+offset_right = 266.72
+offset_bottom = 267.76
+scale = Vector2(4, 4)
+texture = ExtResource("4_2jsup")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -85,7 +129,6 @@ offset_right = 653.0
 offset_bottom = 350.0
 
 [node name="SpawnPoint" type="ColorRect" parent="."]
-unique_name_in_owner = true
 offset_left = 160.0
 offset_top = 234.0
 offset_right = 200.0
@@ -96,6 +139,7 @@ position = Vector2(587, 286)
 
 [node name="mob" parent="." instance=ExtResource("2_osktw")]
 position = Vector2(171, 322)
+collision_layer = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

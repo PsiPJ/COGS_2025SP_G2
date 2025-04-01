@@ -17,15 +17,26 @@ script = ExtResource("1_au20f")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_n4v2o")
 
-[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.625)
-shape = SubResource("RectangleShape2D_vmy3r")
+#<<<<<<< HEAD
+#[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+#position = Vector2(0, 0.625)
+#shape = SubResource("RectangleShape2D_vmy3r")
 
-[node name="Checker" type="Area2D" parent="CollisionShape2d"]
-collision_layer = 2
+#[node name="Checker" type="Area2D" parent="CollisionShape2d"]
+#collision_layer = 2
 
-[node name="CollisionShapeChecker" type="CollisionShape2D" parent="CollisionShape2d/Checker"]
-scale = Vector2(3, 3)
-shape = SubResource("CircleShape2D_4dwdx")
+#[node name="CollisionShapeChecker" type="CollisionShape2D" parent="CollisionShape2d/Checker"]
+#scale = Vector2(3, 3)
+#shape = SubResource("CircleShape2D_4dwdx")
 
-[connection signal="body_entered" from="CollisionShape2d/Checker" to="." method="_on_checker_body_entered"]
+#[connection signal="body_entered" from="CollisionShape2d/Checker" to="." method="_on_checker_body_entered"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cbg8q")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+#>>>>>>> 7bb26dd325d3d65478a8bd7191a940b1331e8df9

@@ -145,4 +145,74 @@ collision_layer = 1
 wait_time = 2.0
 autostart = true
 
+[node name="SpawnPoints" type="Node2D" parent="."]
+position = Vector2(315, 76)
+
+[node name="Top1" type="ColorRect" parent="SpawnPoints"]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Top2" type="ColorRect" parent="SpawnPoints"]
+unique_name_in_owner = true
+offset_left = 470.0
+offset_right = 510.0
+offset_bottom = 40.0
+
+[node name="Top3" type="ColorRect" parent="SpawnPoints"]
+unique_name_in_owner = true
+offset_left = 252.0
+offset_top = -7.0
+offset_right = 292.0
+offset_bottom = 33.0
+
+[node name="Right1" type="ColorRect" parent="SpawnPoints"]
+unique_name_in_owner = true
+offset_left = 651.0
+offset_top = 140.0
+offset_right = 691.0
+offset_bottom = 180.0
+
+[node name="Right2" type="ColorRect" parent="SpawnPoints"]
+unique_name_in_owner = true
+offset_left = 653.0
+offset_top = 324.0
+offset_right = 693.0
+offset_bottom = 364.0
+
+[node name="Bottom1" type="ColorRect" parent="SpawnPoints"]
+unique_name_in_owner = true
+offset_left = 468.0
+offset_top = 472.0
+offset_right = 508.0
+offset_bottom = 512.0
+
+[node name="Bottom2" type="ColorRect" parent="SpawnPoints"]
+unique_name_in_owner = true
+offset_left = 13.0
+offset_top = 477.0
+offset_right = 53.0
+offset_bottom = 517.0
+
+[node name="Bottom3" type="ColorRect" parent="SpawnPoints"]
+unique_name_in_owner = true
+offset_left = 255.0
+offset_top = 475.0
+offset_right = 295.0
+offset_bottom = 515.0
+
+[node name="Left1" type="ColorRect" parent="SpawnPoints"]
+unique_name_in_owner = true
+offset_left = -171.0
+offset_top = 344.0
+offset_right = -131.0
+offset_bottom = 384.0
+
+[node name="Left2" type="ColorRect" parent="SpawnPoints"]
+unique_name_in_owner = true
+offset_left = -167.0
+offset_top = 112.0
+offset_right = -127.0
+offset_bottom = 152.0
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

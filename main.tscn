@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://dny8btygkho1g"]
+[gd_scene load_steps=5 format=3 uid="uid://dny8btygkho1g"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_kf4wu"]
+[ext_resource type="PackedScene" uid="uid://dvdchtgo00go1" path="res://menu.tscn" id="2_717us"]
+[ext_resource type="PackedScene" uid="uid://cwlnraav4170n" path="res://game_scene.tscn" id="3_nppix"]
+[ext_resource type="Script" path="res://node.gd" id="4_o3fd1"]
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" node_paths=PackedStringArray("mini_game_manager")]
 script = ExtResource("1_kf4wu")
+mini_game_manager = NodePath("Node")
+
+[node name="menu" parent="." instance=ExtResource("2_717us")]
+
+[node name="GameScene" parent="." instance=ExtResource("3_nppix")]
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("4_o3fd1")
+game_name = "Gridiron Gauntlet"
+
+[connection signal="game_started" from="Node" to="." method="_on_node_game_started"]

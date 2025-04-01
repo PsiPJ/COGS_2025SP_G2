@@ -41,6 +41,15 @@ func spawn_mob():
 	#decides the properties of the mob before spawning it
 	spawn_side_decider(new_mob)
 	add_child(new_mob)
+	
+# this function will be called by main
+# it will take the parameters of color and maybe number
+func spawn_players():
+	#preload player scene
+	var player = preload("res://player.tscn").instantiate()
+	add_child(player)
+	# from here, we will need to do add child as
+	# well as 
 
 func _on_timer_timeout() -> void:
 	#spawns a mob on a timer interval

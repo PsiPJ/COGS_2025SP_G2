@@ -6,10 +6,11 @@ extends Node2D
 # MiniGameManager node in our main scene.
 @export var mini_game_manager: MiniGameManager
 
-	
-
 func _on_node_game_started(player_data_array: Array) -> void:
-	var player = preload("res://player.tscn").instantiate()
 	for player_data in player_data_array:
+		print(player_data.number)
+		var player = preload("res://player.tscn").instantiate()
+		player.player_id = player_data.number
+		player.global_position = Vector2(350 + (100 * player_data.number), 220)
 		add_child(player)
 		print("Spawning player")

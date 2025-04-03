@@ -84,9 +84,11 @@ offset_right = 653.0
 offset_bottom = 350.0
 
 [node name="Player" parent="." instance=ExtResource("1_p1aj6")]
+visible = false
 position = Vector2(357, 227)
 
 [node name="Player2" parent="." instance=ExtResource("1_p1aj6")]
+visible = false
 position = Vector2(413, 285)
 player_id = 2
 

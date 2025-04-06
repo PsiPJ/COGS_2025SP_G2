@@ -83,7 +83,8 @@ offset_right = 653.0
 offset_bottom = 350.0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+unique_name_in_owner = true
+wait_time = 7.0
 autostart = true
 
 [node name="SpawnPoints" type="Node2D" parent="."]

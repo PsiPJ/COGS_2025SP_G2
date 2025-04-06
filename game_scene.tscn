@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwlnraav4170n"]
+[gd_scene load_steps=6 format=3 uid="uid://cwlnraav4170n"]
 
-[ext_resource type="PackedScene" uid="uid://b0hhroeksco8a" path="res://player.tscn" id="1_p1aj6"]
 [ext_resource type="Script" path="res://game_scene.gd" id="1_uasnv"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u61xi"]
@@ -82,15 +81,6 @@ layout_mode = 0
 offset_left = 648.0
 offset_right = 653.0
 offset_bottom = 350.0
-
-[node name="Player" parent="." instance=ExtResource("1_p1aj6")]
-visible = false
-position = Vector2(357, 227)
-
-[node name="Player2" parent="." instance=ExtResource("1_p1aj6")]
-visible = false
-position = Vector2(413, 285)
-player_id = 2
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

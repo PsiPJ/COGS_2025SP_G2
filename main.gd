@@ -17,7 +17,7 @@ func _on_node_game_started(player_data_array: Array) -> void:
 # length of game is currently determined by this "time_left" variable. We can change
 # this is the future to be something else, or base the game on something other than time
 # such as wait for everyone to die.
-var time_left = 10
+var time_left = 60
 func _process(delta: float):
 	time_left -= delta
 	if time_left < 0:

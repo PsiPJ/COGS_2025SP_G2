@@ -3,7 +3,7 @@ extends Node2D
 func specific_spawn_decider(new_mob, array, index, direction):
 	# sets the properties of the mob
 	new_mob.global_position = array[index]
-	new_mob.velocity = direction * 300
+	new_mob.velocity = direction * (300 + time_elapsed)
 
 func spawn_side_decider(new_mob):
 	# the different spawn points are stored in an array corresponding to their location
@@ -51,6 +51,15 @@ func spawn_players():
 	# from here, we will need to do add child as
 	# well as 
 
+var time_elapsed = 1
+func _process(delta: float):
+	time_elapsed += delta
+
 func _on_timer_timeout() -> void:
 	#spawns a mob on a timer interval
 	spawn_mob()
+	if(time_elapsed > 10):
+		spawn_mob()
+	if(time_elapsed > 20):
+		spawn_mob()
+	

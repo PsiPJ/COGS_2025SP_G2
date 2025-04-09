@@ -1,5 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cwlnraav4170n"]
 
+[ext_resource type="PackedScene" uid="uid://b0hhroeksco8a" path="res://player.tscn" id="1_p1aj6"]
 [ext_resource type="Script" path="res://game_scene.gd" id="1_uasnv"]
 [ext_resource type="Script" path="res://lives_display.gd" id="2_tgb3w"]
 [ext_resource type="Texture2D" uid="uid://c5t11umrfwfgu" path="res://Heart.png" id="3_4wiql"]
@@ -117,13 +118,12 @@ offset_bottom = 350.0
 [node name="Player" parent="." instance=ExtResource("1_p1aj6")]
 position = Vector2(587, 286)
 
-[node name="mob" parent="." instance=ExtResource("2_osktw")]
-position = Vector2(171, 322)
-collision_layer = 1
+[node name="Player2" parent="." instance=ExtResource("1_p1aj6")]
+position = Vector2(413, 285)
+player_id = 2
 
 [node name="Timer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 7.0
+wait_time = 2.0
 autostart = true
 
 [node name="SpawnPoints" type="Node2D" parent="."]

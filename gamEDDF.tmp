@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwlnraav4170n"]
+[gd_scene load_steps=8 format=3 uid="uid://cwlnraav4170n"]
 
+[ext_resource type="PackedScene" uid="uid://b0hhroeksco8a" path="res://player.tscn" id="1_p1aj6"]
 [ext_resource type="Script" path="res://game_scene.gd" id="1_uasnv"]
-[ext_resource type="Script" path="res://lives_display.gd" id="2_tgb3w"]
-[ext_resource type="Texture2D" uid="uid://c5t11umrfwfgu" path="res://Heart.png" id="3_4wiql"]
-[ext_resource type="Texture2D" uid="uid://b5ercqn0mb23o" path="res://Ded.png" id="4_2jsup"]
+[ext_resource type="Script" path="res://global.gd" id="3_c54vd"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u61xi"]
 
@@ -15,35 +14,6 @@
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_uasnv")
-
-[node name="lives_display" type="CanvasLayer" parent="."]
-script = ExtResource("2_tgb3w")
-
-[node name="Panel" type="Panel" parent="lives_display"]
-offset_left = 23.0
-offset_top = 16.0
-offset_right = 188.0
-offset_bottom = 66.0
-
-[node name="EmptyHeart" type="TextureRect" parent="lives_display"]
-texture_filter = 1
-offset_left = 34.0
-offset_top = 17.0
-offset_right = 82.0
-offset_bottom = 33.0
-scale = Vector2(3, 3)
-texture = ExtResource("4_2jsup")
-stretch_mode = 1
-
-[node name="FullHeart" type="TextureRect" parent="lives_display"]
-texture_filter = 1
-offset_left = 34.0
-offset_top = 17.0
-offset_right = 82.0
-offset_bottom = 33.0
-scale = Vector2(3, 3)
-texture = ExtResource("3_4wiql")
-stretch_mode = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -117,13 +87,12 @@ offset_bottom = 350.0
 [node name="Player" parent="." instance=ExtResource("1_p1aj6")]
 position = Vector2(587, 286)
 
-[node name="mob" parent="." instance=ExtResource("2_osktw")]
-position = Vector2(171, 322)
-collision_layer = 1
+[node name="Player2" parent="." instance=ExtResource("1_p1aj6")]
+position = Vector2(413, 285)
+player_id = 2
 
 [node name="Timer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 7.0
+wait_time = 2.0
 autostart = true
 
 [node name="SpawnPoints" type="Node2D" parent="."]
@@ -195,5 +164,8 @@ offset_left = -167.0
 offset_top = 112.0
 offset_right = -127.0
 offset_bottom = 152.0
+
+[node name="Global" type="Node2D" parent="."]
+script = ExtResource("3_c54vd")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

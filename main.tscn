@@ -1,6 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://dny8btygkho1g"]
+[gd_scene load_steps=5 format=3 uid="uid://dny8btygkho1g"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_kf4wu"]
+[ext_resource type="PackedScene" uid="uid://dvdchtgo00go1" path="res://menu.tscn" id="2_717us"]
+[ext_resource type="PackedScene" uid="uid://cwlnraav4170n" path="res://game_scene.tscn" id="3_nppix"]
+[ext_resource type="Script" path="res://node.gd" id="4_o3fd1"]
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" node_paths=PackedStringArray("mini_game_manager")]
 script = ExtResource("1_kf4wu")
+mini_game_manager = NodePath("Node")
+
+[node name="GameScene" parent="." instance=ExtResource("3_nppix")]
+position = Vector2(1, 0)
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("4_o3fd1")
+game_name = "Gridiron Gauntlet"
+
+[node name="menu" parent="." instance=ExtResource("2_717us")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 324)
+
+[connection signal="game_started" from="Node" to="." method="_on_node_game_started"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

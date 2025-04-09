@@ -1,6 +1,5 @@
 [gd_scene load_steps=11 format=3 uid="uid://cwlnraav4170n"]
 
-[ext_resource type="PackedScene" uid="uid://b0hhroeksco8a" path="res://player.tscn" id="1_p1aj6"]
 [ext_resource type="Script" path="res://game_scene.gd" id="1_uasnv"]
 [ext_resource type="Script" path="res://lives_display.gd" id="2_5fnof"]
 [ext_resource type="PackedScene" uid="uid://cbny36eeah3wl" path="res://mob.tscn" id="2_osktw"]
@@ -142,7 +141,8 @@ position = Vector2(171, 322)
 collision_layer = 1
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+unique_name_in_owner = true
+wait_time = 7.0
 autostart = true
 
 [node name="SpawnPoints" type="Node2D" parent="."]

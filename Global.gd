@@ -9,7 +9,7 @@ var id
 func lose_life():
 	lives-=1
 	hud.load_hearts()
-	if lives<=0:
+	if lives<0:
 		print ("oh no")
 	
 	

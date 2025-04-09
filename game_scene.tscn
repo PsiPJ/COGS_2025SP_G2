@@ -17,16 +17,16 @@
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_uasnv")
 
-[node name="lives_display" type="CanvasLayer" parent="."]
+[node name="Lives_display" type="CanvasLayer" parent="."]
 script = ExtResource("2_tgb3w")
 
-[node name="Panel" type="Panel" parent="lives_display"]
+[node name="Panel" type="Panel" parent="Lives_display"]
 offset_left = 23.0
 offset_top = 16.0
 offset_right = 188.0
 offset_bottom = 66.0
 
-[node name="EmptyHeart" type="TextureRect" parent="lives_display"]
+[node name="EmptyHeart" type="TextureRect" parent="Lives_display"]
 texture_filter = 1
 offset_left = 34.0
 offset_top = 17.0
@@ -36,7 +36,8 @@ scale = Vector2(3, 3)
 texture = ExtResource("4_2jsup")
 stretch_mode = 1
 
-[node name="FullHeart" type="TextureRect" parent="lives_display"]
+[node name="FullHeart" type="TextureRect" parent="Lives_display"]
+visible = false
 texture_filter = 1
 offset_left = 34.0
 offset_top = 17.0

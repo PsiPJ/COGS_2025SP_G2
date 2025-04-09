@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwlnraav4170n"]
+[gd_scene load_steps=11 format=3 uid="uid://cwlnraav4170n"]
 
 [ext_resource type="PackedScene" uid="uid://b0hhroeksco8a" path="res://player.tscn" id="1_p1aj6"]
 [ext_resource type="Script" path="res://game_scene.gd" id="1_uasnv"]
-[ext_resource type="Script" path="res://lives_display.gd" id="2_tgb3w"]
+[ext_resource type="Script" path="res://Lives_display.gd" id="2_s857h"]
 [ext_resource type="Texture2D" uid="uid://c5t11umrfwfgu" path="res://Heart.png" id="3_4wiql"]
+[ext_resource type="Script" path="res://ControlLives.gd" id="3_tvxp5"]
 [ext_resource type="Texture2D" uid="uid://b5ercqn0mb23o" path="res://Ded.png" id="4_2jsup"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u61xi"]
@@ -17,33 +18,36 @@
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_uasnv")
 
-[node name="lives_display" type="CanvasLayer" parent="."]
-script = ExtResource("2_tgb3w")
+[node name="ControlLives" type="Node2D" parent="."]
+script = ExtResource("3_tvxp5")
 
-[node name="Panel" type="Panel" parent="lives_display"]
+[node name="Lives_Display" type="Panel" parent="."]
 offset_left = 23.0
 offset_top = 16.0
 offset_right = 188.0
 offset_bottom = 66.0
+script = ExtResource("2_s857h")
 
-[node name="EmptyHeart" type="TextureRect" parent="lives_display"]
+[node name="FullHeart" type="TextureRect" parent="Lives_Display"]
 texture_filter = 1
-offset_left = 34.0
-offset_top = 17.0
-offset_right = 82.0
-offset_bottom = 33.0
-scale = Vector2(3, 3)
-texture = ExtResource("4_2jsup")
-stretch_mode = 1
-
-[node name="FullHeart" type="TextureRect" parent="lives_display"]
-texture_filter = 1
-offset_left = 34.0
-offset_top = 17.0
-offset_right = 82.0
-offset_bottom = 33.0
+layout_mode = 0
+offset_left = 11.0
+offset_top = 1.0
+offset_right = 60.0
+offset_bottom = 17.0
 scale = Vector2(3, 3)
 texture = ExtResource("3_4wiql")
+stretch_mode = 1
+
+[node name="EmptyHeart" type="TextureRect" parent="Lives_Display"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 11.0
+offset_top = 1.0
+offset_right = 60.0
+offset_bottom = 17.0
+scale = Vector2(3, 3)
+texture = ExtResource("4_2jsup")
 stretch_mode = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

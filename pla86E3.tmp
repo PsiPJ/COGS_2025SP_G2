@@ -27,7 +27,6 @@ shape = SubResource("CircleShape2D_ddfg0")
 
 [node name="HurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true
-collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
@@ -46,7 +45,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_bffxk")
 value = 100.0
 
 [node name="RedTimer" type="Timer" parent="."]
-wait_time = 2.2
+wait_time = 2.5
 one_shot = true
 
 [connection signal="timeout" from="RedTimer" to="." method="_on_red_timer_timeout"]

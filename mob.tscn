@@ -3,40 +3,34 @@
 [ext_resource type="Script" path="res://mob.gd" id="1_au20f"]
 [ext_resource type="Texture2D" uid="uid://c5qpsjj28rdth" path="res://icon.svg" id="1_n4v2o"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmy3r"]
-size = Vector2(65.5, 62.75)
+[sub_resource type="CircleShape2D" id="CircleShape2D_cbg8q"]
+radius = 31.0644
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4dwdx"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gp7he"]
+size = Vector2(62, 63)
 
 [node name="mob" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_au20f")
 
-[node name="enemy" type="Sprite2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cbg8q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_n4v2o")
 
-#<<<<<<< HEAD
-#[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
-#position = Vector2(0, 0.625)
-#shape = SubResource("RectangleShape2D_vmy3r")
+[node name="Checker" type="Area2D" parent="."]
+collision_layer = 2
 
-#[node name="Checker" type="Area2D" parent="CollisionShape2d"]
-#collision_layer = 2
-
-#[node name="CollisionShapeChecker" type="CollisionShape2D" parent="CollisionShape2d/Checker"]
-#scale = Vector2(3, 3)
-#shape = SubResource("CircleShape2D_4dwdx")
-
-#[connection signal="body_entered" from="CollisionShape2d/Checker" to="." method="_on_checker_body_entered"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_cbg8q")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checker"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_gp7he")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
 
+[connection signal="body_entered" from="Checker" to="." method="_on_checker_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-#>>>>>>> 7bb26dd325d3d65478a8bd7191a940b1331e8df9

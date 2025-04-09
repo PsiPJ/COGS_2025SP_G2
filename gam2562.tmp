@@ -1,5 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cwlnraav4170n"]
 
+[ext_resource type="PackedScene" uid="uid://b0hhroeksco8a" path="res://player.tscn" id="1_p1aj6"]
 [ext_resource type="Script" path="res://game_scene.gd" id="1_uasnv"]
 [ext_resource type="Script" path="res://lives_display.gd" id="2_tgb3w"]
 [ext_resource type="Texture2D" uid="uid://c5t11umrfwfgu" path="res://Heart.png" id="3_4wiql"]
@@ -16,16 +17,16 @@
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_uasnv")
 
-[node name="Lives_display" type="CanvasLayer" parent="."]
+[node name="lives_display" type="CanvasLayer" parent="."]
 script = ExtResource("2_tgb3w")
 
-[node name="Panel" type="Panel" parent="Lives_display"]
+[node name="Panel" type="Panel" parent="lives_display"]
 offset_left = 23.0
 offset_top = 16.0
 offset_right = 188.0
 offset_bottom = 66.0
 
-[node name="EmptyHeart" type="TextureRect" parent="Lives_display"]
+[node name="EmptyHeart" type="TextureRect" parent="lives_display"]
 texture_filter = 1
 offset_left = 34.0
 offset_top = 17.0
@@ -35,8 +36,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("4_2jsup")
 stretch_mode = 1
 
-[node name="FullHeart" type="TextureRect" parent="Lives_display"]
-visible = false
+[node name="FullHeart" type="TextureRect" parent="lives_display"]
 texture_filter = 1
 offset_left = 34.0
 offset_top = 17.0
@@ -114,6 +114,13 @@ layout_mode = 0
 offset_left = 648.0
 offset_right = 653.0
 offset_bottom = 350.0
+
+[node name="Player" parent="." instance=ExtResource("1_p1aj6")]
+position = Vector2(587, 286)
+
+[node name="Player2" parent="." instance=ExtResource("1_p1aj6")]
+position = Vector2(413, 285)
+player_id = 2
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

@@ -37,9 +37,13 @@ func spawn_side_decider(new_mob):
 func spawn_mob():
 	#preload mob scene
 	var new_mob = preload("res://mob.tscn").instantiate()
+#<<<<<<< HEAD
+#	new_mob.global_position = $"SpawnPoint".global_position
+
 	
 	#decides the properties of the mob before spawning it
 	spawn_side_decider(new_mob)
+#>>>>>>> 7bb26dd325d3d65478a8bd7191a940b1331e8df9
 	add_child(new_mob)
 	
 # this function will be called by main

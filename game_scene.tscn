@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwlnraav4170n"]
+[gd_scene load_steps=10 format=3 uid="uid://cwlnraav4170n"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_uasnv"]
 [ext_resource type="Script" path="res://lives_display.gd" id="2_tgb3w"]
 [ext_resource type="Texture2D" uid="uid://c5t11umrfwfgu" path="res://Heart.png" id="3_4wiql"]
 [ext_resource type="Texture2D" uid="uid://b5ercqn0mb23o" path="res://Ded.png" id="4_2jsup"]
+[ext_resource type="Texture2D" uid="uid://dciso41ske0w" path="res://Pillar.png" id="5_p2g1t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u61xi"]
 
@@ -189,5 +190,20 @@ offset_left = -167.0
 offset_top = 112.0
 offset_right = -127.0
 offset_bottom = 152.0
+
+[node name="FrontPillars" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Left1" type="Sprite2D" parent="FrontPillars"]
+position = Vector2(233, 178)
+scale = Vector2(3, 3)
+texture = ExtResource("5_p2g1t")
+
+[node name="BackPillars" type="Node2D" parent="."]
+
+[node name="Left1" type="Sprite2D" parent="BackPillars"]
+position = Vector2(191, 139)
+scale = Vector2(3, 3)
+texture = ExtResource("5_p2g1t")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,5 +1,11 @@
 extends Node2D
 
+# Originally, the wait time will be assigned according to when the players
+# spawn in through the inspector window. Then, it will be set to a consistant
+# number through the ready function
+func _ready():
+	$Timer.wait_time = 2
+
 func specific_spawn_decider(new_mob, array, index, direction):
 	# sets the properties of the mob
 	new_mob.global_position = array[index]
@@ -45,15 +51,7 @@ func spawn_mob():
 	spawn_side_decider(new_mob)
 #>>>>>>> 7bb26dd325d3d65478a8bd7191a940b1331e8df9
 	add_child(new_mob)
-	
-# this function will be called by main
-# it will take the parameters of color and maybe number
-func spawn_players():
-	#preload player scene
-	var player = preload("res://player.tscn").instantiate()
-	add_child(player)
-	# from here, we will need to do add child as
-	# well as 
+
 
 var time_elapsed = 1
 func _process(delta: float):

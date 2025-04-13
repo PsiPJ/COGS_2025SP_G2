@@ -13,6 +13,6 @@ func _on_checker_body_entered(body: Node2D) -> void:
 		body.ouch(Global.id)
 	 # you can make it so if the player kills eemy, this is where the dead enemy animation would be implemented
 
-# despawns mobs after they leave the screen (adjust wait time property)
+# despawns mobs after they leave the screen (adjust wait time property of timer node to change)
 func _on_timer_timeout() -> void:
 	queue_free()

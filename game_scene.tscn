@@ -115,13 +115,6 @@ offset_left = 648.0
 offset_right = 653.0
 offset_bottom = 350.0
 
-[node name="Player" parent="." instance=ExtResource("1_p1aj6")]
-position = Vector2(587, 286)
-
-[node name="mob" parent="." instance=ExtResource("2_osktw")]
-position = Vector2(171, 322)
-collision_layer = 1
-
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 7.0

@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwlnraav4170n"]
+[gd_scene load_steps=12 format=3 uid="uid://cwlnraav4170n"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_uasnv"]
 [ext_resource type="Script" path="res://lives_display.gd" id="2_tgb3w"]
 [ext_resource type="Texture2D" uid="uid://c5t11umrfwfgu" path="res://Heart.png" id="3_4wiql"]
 [ext_resource type="Texture2D" uid="uid://b5ercqn0mb23o" path="res://Ded.png" id="4_2jsup"]
 [ext_resource type="Texture2D" uid="uid://dciso41ske0w" path="res://Pillar.png" id="5_p2g1t"]
+[ext_resource type="Texture2D" uid="uid://dis0hnvmabn5m" path="res://SideHouse.png" id="6_snd6r"]
+[ext_resource type="Texture2D" uid="uid://d0vt86roc1sqm" path="res://FrontHouse.png" id="7_84qkk"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u61xi"]
 
@@ -186,24 +188,51 @@ offset_bottom = 384.0
 
 [node name="Left2" type="ColorRect" parent="SpawnPoints"]
 unique_name_in_owner = true
-offset_left = -167.0
-offset_top = 112.0
-offset_right = -127.0
-offset_bottom = 152.0
+offset_left = -170.0
+offset_top = 109.0
+offset_right = -130.0
+offset_bottom = 149.0
 
 [node name="FrontPillars" type="Node2D" parent="."]
 z_index = 1
 
 [node name="Left1" type="Sprite2D" parent="FrontPillars"]
-position = Vector2(233, 178)
+position = Vector2(233, 186)
+scale = Vector2(3, 3)
+texture = ExtResource("5_p2g1t")
+
+[node name="Left2" type="Sprite2D" parent="FrontPillars"]
+position = Vector2(142, 185)
 scale = Vector2(3, 3)
 texture = ExtResource("5_p2g1t")
 
 [node name="BackPillars" type="Node2D" parent="."]
 
 [node name="Left1" type="Sprite2D" parent="BackPillars"]
-position = Vector2(191, 139)
+position = Vector2(191, 131)
 scale = Vector2(3, 3)
 texture = ExtResource("5_p2g1t")
+
+[node name="LeftHouse1" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(18, 182)
+scale = Vector2(3, 3)
+texture = ExtResource("6_snd6r")
+
+[node name="LeftHouse2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(15, 425)
+scale = Vector2(3, 3)
+texture = ExtResource("6_snd6r")
+
+[node name="FrontHouse" type="Sprite2D" parent="."]
+position = Vector2(344, 5)
+scale = Vector2(3, 3)
+texture = ExtResource("7_84qkk")
+
+[node name="FrontHouse2" type="Sprite2D" parent="."]
+position = Vector2(596, 3)
+scale = Vector2(3, 3)
+texture = ExtResource("7_84qkk")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

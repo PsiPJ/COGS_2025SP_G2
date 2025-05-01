@@ -29,15 +29,24 @@ func end_game():
 	# Here, we can add some code that distributes points based on the amount of
 	# health each player has left. For now, the points are just arbitrarily given
 	# for test purposes
+	print("Player 1 earned: %d" % [new_player_data[0].points])
 	
 	mini_game_manager.end_game([
 		{
 			"player": 0,
-			"points": 5
+			"points": new_player_data[0].points
 		},
 		{
 			"player": 1,
-			"points": 5
+			"points": new_player_data[1].points
+		},
+		{
+			"player": 2,
+			"points": new_player_data[2].points
+		},
+		{
+			"player": 3,
+			"points": new_player_data[3].points
 		}
 	])
 
@@ -47,5 +56,17 @@ func _on_timer_timeout() -> void:
 		var player = preload("res://player.tscn").instantiate()
 		player.player_id = player_data.number
 		player.global_position = Vector2(350 + (100 * player_data.number), 220)
+		player.color = Color(player_data.color)
 		player.get_node("Sprite2D").modulate = Color(player_data.color)
+		
+		player_data.points = 3
+		
+		player.connect("took_damage", Callable(self, "_on_player_took_damage"))
+		
 		add_child(player)
+		
+func _on_player_took_damage(player_id: int, amount: int) -> void:
+	for player_data in new_player_data:
+		if player_data.number == player_id:
+			player_data.points -= 1
+			print("Player %d lost a point! Now at %d" % [player_id, player_data.points])

@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
 @export var player_id = 1 # Used to tell which player this is (for multiplayer)
+@export var health = 3 # health is also used for scoring
+@export var color: Color
 
-var health = 3 
 var invincibility_time = 1.0
 var is_invincible = false
+
+signal took_damage(player_id: int, amount: int)
 
 var ded_texture = preload("res://Ded.png")
 
@@ -31,6 +34,7 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 		return
 	if health > 0:
 		invincibility_frames()
+		emit_signal("took_damage", player_id, 1)
 		var heart_node = $HealthBar.get_node("Heart%d" % health)
 		heart_node.texture = ded_texture
 		health -= 1
@@ -40,7 +44,9 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 #function that will make the player invisible for a short period of time
 func invincibility_frames():
 	is_invincible = true
-	$Sprite2D.modulate = Color(1, 1, 1, 0.5)
+	var color_copy = $Sprite2D.modulate
+	color_copy.a = 0.5
+	$Sprite2D.modulate = color_copy
 	await get_tree().create_timer(invincibility_time).timeout 
 	is_invincible = false
-	$Sprite2D.modulate = Color(1, 1, 1, 1)
+	$Sprite2D.modulate = color

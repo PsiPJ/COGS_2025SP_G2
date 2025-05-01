@@ -1,14 +1,108 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvdchtgo00go1"]
+[gd_scene load_steps=21 format=3 uid="uid://dvdchtgo00go1"]
 
 [ext_resource type="Texture2D" uid="uid://c1ph3c46se0sf" path="res://menu.png" id="1_2fq0t"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_e2e62"]
+[ext_resource type="Texture2D" uid="uid://dui66ahlc20i4" path="res://MenuSpriteSheet.png" id="2_6wrjk"]
 [ext_resource type="Script" path="res://animation_player.gd" id="2_45t41"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjcnf"]
+atlas = ExtResource("2_6wrjk")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uixv6"]
+atlas = ExtResource("2_6wrjk")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f57hj"]
+atlas = ExtResource("2_6wrjk")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5pls"]
+atlas = ExtResource("2_6wrjk")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkm0h"]
+atlas = ExtResource("2_6wrjk")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxpop"]
+atlas = ExtResource("2_6wrjk")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohqj6"]
+atlas = ExtResource("2_6wrjk")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qp3o"]
+atlas = ExtResource("2_6wrjk")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6byqw"]
+atlas = ExtResource("2_6wrjk")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn5n0"]
+atlas = ExtResource("2_6wrjk")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag4ye"]
+atlas = ExtResource("2_6wrjk")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkkch"]
+atlas = ExtResource("2_6wrjk")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g3d3e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjcnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uixv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f57hj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5pls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkm0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxpop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohqj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qp3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6byqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yn5n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ag4ye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkkch")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_mrkuf"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,7 +118,7 @@ length = 6.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -42,8 +136,19 @@ _data = {
 
 [node name="menu" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_e2e62")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.517391, 0.517391)
 texture = ExtResource("1_2fq0t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D/Sprite2D"]
+unique_name_in_owner = true
+scale = Vector2(6.9761, 6.9761)
+sprite_frames = SubResource("SpriteFrames_g3d3e")
+frame = 9
+frame_progress = 0.843099
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

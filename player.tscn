@@ -20,6 +20,7 @@ bg_color = Color(7.70092e-07, 0.724409, 0.233159, 1)
 script = ExtResource("1_hbosp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_0yj7f")
 

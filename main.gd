@@ -6,6 +6,7 @@ extends Node2D
 # MiniGameManager node in our main scene.
 @export var mini_game_manager: MiniGameManager
 
+# array containing player data for each player
 var new_player_data
 
 # when the game starts, for each player_data we will load our player scene,

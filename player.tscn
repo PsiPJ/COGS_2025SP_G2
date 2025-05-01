@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0hhroeksco8a"]
+[gd_scene load_steps=8 format=3 uid="uid://b0hhroeksco8a"]
 
 [ext_resource type="Texture2D" uid="uid://c5qpsjj28rdth" path="res://icon.svg" id="1_0yj7f"]
 [ext_resource type="Script" path="res://player.gd" id="1_hbosp"]
+[ext_resource type="Texture2D" uid="uid://c5t11umrfwfgu" path="res://Heart.png" id="4_hsque"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ddfg0"]
 radius = 31.0
@@ -49,4 +50,26 @@ value = 100.0
 wait_time = 2.2
 one_shot = true
 
+[node name="HealthBar" type="Node2D" parent="."]
+position = Vector2(0, -57)
+
+[node name="Heart1" type="Sprite2D" parent="HealthBar"]
+unique_name_in_owner = true
+position = Vector2(-25, 0)
+scale = Vector2(2.125, 2.07909)
+texture = ExtResource("4_hsque")
+
+[node name="Heart2" type="Sprite2D" parent="HealthBar"]
+unique_name_in_owner = true
+position = Vector2(0.999998, 0)
+scale = Vector2(2.125, 2.07909)
+texture = ExtResource("4_hsque")
+
+[node name="Heart3" type="Sprite2D" parent="HealthBar"]
+unique_name_in_owner = true
+position = Vector2(27, 0)
+scale = Vector2(2.125, 2.07909)
+texture = ExtResource("4_hsque")
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="timeout" from="RedTimer" to="." method="_on_red_timer_timeout"]

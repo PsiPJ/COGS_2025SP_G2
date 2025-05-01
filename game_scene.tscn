@@ -1,11 +1,8 @@
-[gd_scene load_steps=23 format=4 uid="uid://cwlnraav4170n"]
+[gd_scene load_steps=20 format=4 uid="uid://cwlnraav4170n"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_uasnv"]
 [ext_resource type="Texture2D" uid="uid://dmadi4dywugha" path="res://SandOutline64.png" id="2_0dwll"]
-[ext_resource type="Script" path="res://lives_display.gd" id="2_tgb3w"]
-[ext_resource type="Texture2D" uid="uid://c5t11umrfwfgu" path="res://Heart.png" id="3_4wiql"]
 [ext_resource type="Texture2D" uid="uid://btse4xjclmei1" path="res://SandOutline80.png" id="3_xfjbn"]
-[ext_resource type="Texture2D" uid="uid://b5ercqn0mb23o" path="res://Ded.png" id="4_2jsup"]
 [ext_resource type="Texture2D" uid="uid://cgh1xo37g5r2k" path="res://SandOutline100.png" id="4_jiqqc"]
 [ext_resource type="Texture2D" uid="uid://dyy5jcxy12g2u" path="res://Gray100.png" id="5_5k5oc"]
 [ext_resource type="Texture2D" uid="uid://dciso41ske0w" path="res://Pillar.png" id="5_p2g1t"]
@@ -65,36 +62,6 @@ script = ExtResource("1_uasnv")
 position = Vector2(-22, -53)
 tile_map_data = PackedByteArray("AAAGAAUAAgAAAAAAAAAHAAUAAgAAAAAAAAAGAAQAAgAAAAAAAAAHAAQAAgAAAAAAAAAAAAAABAAAAAAAAAABAAAABAAAAAAAAAACAAAABAAAAAAAAAADAAAABAAAAAAAAAAEAAAABAAAAAAAAAAFAAAABAAAAAAAAAAHAAAABAAAAAAAAAAGAAAABAAAAAAAAAAIAAAABAAAAAAAAAAJAAAABAAAAAAAAAAKAAAABAAAAAAAAAALAAAABAAAAAAAAAAAAAYABAAAAAAAAAAAAAUABAAAAAAAAAAAAAQABAAAAAAAAAAAAAMABAAAAAAAAAAAAAIABAAAAAAAAAAAAAEABAAAAAAAAAABAAEABAAAAAAAAAABAAIABAAAAAAAAAABAAMABAAAAAAAAAABAAUABAAAAAAAAAABAAYABAAAAAAAAAACAAYABAAAAAAAAAACAAUABAAAAAAAAAACAAQABAAAAAAAAAACAAMABAAAAAAAAAACAAIABAAAAAAAAAACAAEABAAAAAAAAAAJAAEABAAAAAAAAAAKAAEABAAAAAAAAAALAAEABAAAAAAAAAALAAIABAAAAAAAAAALAAMABAAAAAAAAAALAAQABAAAAAAAAAALAAUABAAAAAAAAAALAAYABAAAAAAAAAAJAAYABAAAAAAAAAAIAAYAAgAAAAAAAAAFAAUAAgAAAAAAAAAFAAQAAgAAAAAAAAAFAAMAAgAAAAAAAAAFAAIAAgAAAAAAAAAEAAIAAgAAAAAAAAADAAIAAgAAAAAAAAADAAMAAgAAAAAAAAADAAQAAgAAAAAAAAADAAUAAgAAAAAAAAADAAYAAgAAAAAAAAAEAAYAAgAAAAAAAAAEAAUAAgAAAAAAAAAEAAQAAgAAAAAAAAAEAAMAAgAAAAAAAAAFAAYAAgAAAAAAAAAGAAYAAgAAAAAAAAAHAAYAAgAAAAAAAAAGAAIAAgAAAAAAAAAGAAMAAgAAAAAAAAAHAAMAAgAAAAAAAAAHAAIAAgAAAAAAAAAIAAIAAgAAAAAAAAAIAAMAAgAAAAAAAAAIAAQAAgAAAAAAAAAIAAUAAgAAAAAAAAAJAAUABAAAAAAAAAAJAAQABAAAAAAAAAAJAAMABAAAAAAAAAAJAAIABAAAAAAAAAAKAAIABAAAAAAAAAAKAAMABAAAAAAAAAAKAAQABAAAAAAAAAAKAAUABAAAAAAAAAAKAAYABAAAAAAAAAABAAQABAAAAAAAAAADAAEABAAAAAAAAAAEAAEABAAAAAAAAAAFAAEABAAAAAAAAAAGAAEABAAAAAAAAAAHAAEABAAAAAAAAAAIAAEABAAAAAAAAAA=")
 tile_set = SubResource("TileSet_jag82")
-
-[node name="Lives_display" type="CanvasLayer" parent="."]
-script = ExtResource("2_tgb3w")
-
-[node name="Panel" type="Panel" parent="Lives_display"]
-offset_left = 23.0
-offset_top = 16.0
-offset_right = 188.0
-offset_bottom = 66.0
-
-[node name="EmptyHeart" type="TextureRect" parent="Lives_display"]
-texture_filter = 1
-offset_left = 34.0
-offset_top = 17.0
-offset_right = 82.0
-offset_bottom = 33.0
-scale = Vector2(3, 3)
-texture = ExtResource("4_2jsup")
-stretch_mode = 1
-
-[node name="FullHeart" type="TextureRect" parent="Lives_display"]
-visible = false
-texture_filter = 1
-offset_left = 34.0
-offset_top = 17.0
-offset_right = 82.0
-offset_bottom = 33.0
-scale = Vector2(3, 3)
-texture = ExtResource("3_4wiql")
-stretch_mode = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

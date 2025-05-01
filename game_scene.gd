@@ -18,13 +18,13 @@ func spawn_side_decider(new_mob):
 	# change much code. Simply add a new ColorRect (or other node) as a child of SpawnPoints,
 	# access as a unique name, and add it to the corresponding array.
 	
-	var SpawnPointsTop = [$"SpawnPoints/Top1".global_position, $"SpawnPoints/Top2".global_position, $"SpawnPoints/Top3".global_position]
-	var SpawnPointsRight = [$"SpawnPoints/Right1".global_position, $"SpawnPoints/Right2".global_position]
-	var SpawnPointsBottom = [$"SpawnPoints/Bottom1".global_position, $"SpawnPoints/Bottom2".global_position, $"SpawnPoints/Bottom3".global_position]
-	var SpawnPointsLeft = [$"SpawnPoints/Left1".global_position, $"SpawnPoints/Left2".global_position]
+	var SpawnPointsTop = [$"SpawnPoints/Top1".global_position, $"SpawnPoints/Top2".global_position, $"SpawnPoints/Top3".global_position, $"SpawnPoints/Top4".global_position, $"SpawnPoints/Top5".global_position, $"SpawnPoints/Top6".global_position]
+	var SpawnPointsRight = [$"SpawnPoints/Right1".global_position, $"SpawnPoints/Right2".global_position, $"SpawnPoints/Right3".global_position, $"SpawnPoints/Right4".global_position, $"SpawnPoints/Right5".global_position]
+	var SpawnPointsBottom = [$"SpawnPoints/Bottom1".global_position, $"SpawnPoints/Bottom2".global_position, $"SpawnPoints/Bottom3".global_position, $"SpawnPoints/Bottom4".global_position, $"SpawnPoints/Bottom5".global_position, $"SpawnPoints/Bottom6".global_position]
+	var SpawnPointsLeft = [$"SpawnPoints/Left1".global_position, $"SpawnPoints/Left2".global_position, $"SpawnPoints/Left3".global_position, $"SpawnPoints/Left4".global_position, $"SpawnPoints/Left5".global_position]
 	
 	var rng = RandomNumberGenerator.new()
-	var random_number = rng.randi_range(1, 4)
+	var random_number = rng.randi_range(1, 3)
 	
 	if(random_number == 1):
 		random_number = rng.randi_range(0, SpawnPointsTop.size() - 1)
@@ -32,10 +32,10 @@ func spawn_side_decider(new_mob):
 	elif(random_number == 2):
 		random_number = rng.randi_range(0, SpawnPointsRight.size() - 1)
 		specific_spawn_decider(new_mob, SpawnPointsRight, random_number, Vector2.LEFT)
-	elif(random_number == 3):
+	elif(random_number == 4):
 		random_number = rng.randi_range(0, SpawnPointsBottom.size() - 1)
 		specific_spawn_decider(new_mob, SpawnPointsBottom, random_number, Vector2.UP)
-	elif(random_number == 4):
+	elif(random_number == 3):
 		random_number = rng.randi_range(0, SpawnPointsLeft.size() - 1)
 		specific_spawn_decider(new_mob, SpawnPointsLeft, random_number, Vector2.RIGHT)
 		
